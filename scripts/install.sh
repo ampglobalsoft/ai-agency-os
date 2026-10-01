@@ -138,12 +138,12 @@ json_set_phase() {
             "
             ;;
         python3|python)
-            AI AGENCY_VAL="$value" "$JSON_RUNTIME" -c "
+            AI_AGENCY_VAL="$value" "$JSON_RUNTIME" -c "
 import json, os, datetime
 f = '$WIN_STATE_FILE'
 s = json.load(open(f))
 s['phases'].setdefault('$phase', {})
-s['phases']['$phase']['$field'] = json.loads(os.environ['AI AGENCY_VAL'])
+s['phases']['$phase']['$field'] = json.loads(os.environ['AI_AGENCY_VAL'])
 s['lastUpdatedAt'] = datetime.datetime.now(datetime.timezone.utc).isoformat()
 json.dump(s, open(f, 'w'), indent=2)
 "
@@ -165,11 +165,11 @@ json_set_root() {
             "
             ;;
         python3|python)
-            AI AGENCY_VAL="$2" "$JSON_RUNTIME" -c "
+            AI_AGENCY_VAL="$2" "$JSON_RUNTIME" -c "
 import json, os, datetime
 f = '$WIN_STATE_FILE'
 s = json.load(open(f))
-s['$1'] = json.loads(os.environ['AI AGENCY_VAL'])
+s['$1'] = json.loads(os.environ['AI_AGENCY_VAL'])
 s['lastUpdatedAt'] = datetime.datetime.now(datetime.timezone.utc).isoformat()
 json.dump(s, open(f, 'w'), indent=2)
 "
