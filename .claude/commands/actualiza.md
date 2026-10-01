@@ -8,6 +8,10 @@ Trae la última versión del OS y la instala sin tocar nada tuyo.
 
 ## Proceso
 
+0. **Elegir origen (SIEMPRE preguntar primero)**: si existe el remoto `upstream`, usa `AskUserQuestion` para preguntar de dónde actualizar:
+   - **Mi fork (`origin`)** → sigue el proceso normal de abajo (pasos 1-8).
+   - **Repo de pauberenguer (`upstream`)** → ejecuta el flujo del comando `/actualiza-pau` (lee `.claude/commands/actualiza-pau.md`) y para aquí; no sigas con los pasos 1-8.
+   Si no existe `upstream`, no preguntes: sigue el proceso normal con `origin`.
 1. Confirmar que estamos dentro de un repo ai-agency-os (existe `vendor/sinapsis/` y `CLAUDE.md` con "AI Agency OS"). Si no, avisar y parar.
 2. Avisar al usuario qué versión tiene ahora (badge del README o `version` de `CITATION.cff`) y que vas a actualizar.
 3. Ejecutar, en este orden:
