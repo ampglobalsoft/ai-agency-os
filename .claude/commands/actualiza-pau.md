@@ -31,6 +31,12 @@ Repo original (solo lectura): `https://github.com/pauberenguer/ai-agency-os.git`
    git merge --ff-only upstream/main || git merge upstream/main
    ```
    Si hay conflictos: parar, listar los archivos y resolverlos con el usuario uno a uno. No usar `--force`, ni `reset --hard`, ni `checkout --theirs/--ours` en bloque.
+   **Guardia del fix `AI_AGENCY_VAL` (obligatoria, tras el merge Y tras `update.sh`)**: el original (pauberenguer) tiene el bug `AI AGENCY_VAL` (con espacio) en `scripts/install.sh`; nosotros lo corregimos a `AI_AGENCY_VAL` (commit `803bad8`). Comprobar:
+   ```bash
+   grep -c "AI AGENCY_VAL" scripts/install.sh   # debe dar 0
+   grep -c "AI_AGENCY_VAL" scripts/install.sh   # debe dar 4
+   ```
+   Si reaparece el bug (o hay conflicto en esas líneas), conservar SIEMPRE nuestra versión (`AI_AGENCY_VAL`), nunca la del original. Si `update.sh` lo pisó, restaurar con `git checkout HEAD -- scripts/install.sh` y avisar al usuario.
 8. Subir al fork (es el repo del usuario, pero confirma antes del primer push de la sesión):
    ```bash
    git push origin <rama-actual>
