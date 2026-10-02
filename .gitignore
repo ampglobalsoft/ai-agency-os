@@ -114,3 +114,6 @@ yarn.lock
 
 # Commit upstream ya aplicado por scripts/update.sh (estado local)
 .claude/.upstream-state
+
+# Resumenes diarios del operador: diario personal, no se comparte entre maquinas
+synapsis/daily-summaries/
